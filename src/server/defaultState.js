@@ -27,7 +27,7 @@ export const defaultState = {
         group: "G1",
         owner: "U1",
         name: "Do test",
-        isComplete: false
+        isComplete: true
     },{
         id: "T2",
         group: "G2",

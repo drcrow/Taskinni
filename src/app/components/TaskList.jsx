@@ -1,18 +1,34 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { requestTaskCreation } from '../store/mutations';
+import { Link } from 'react-router-dom';
 
 export const TaskList = ({tasks, name, id, createNewTask}) => (
     <div className="col-md-4">
         <div className="card text-white bg-info mb-3">
             <div className="card-header">
                 <h5 className="float-left">{ name }</h5>
-                <button onClick={ () => createNewTask(id) } type="button" className="btn btn-outline-dark float-right"><i className="fas fa-plus-circle"></i></button>
+                <button onClick={ () => createNewTask(id) } type="button" className="btn btn-outline-dark float-right btn-sm"><i className="fas fa-plus-circle"></i></button>
             </div>
-            <div className="card-body">
-                { tasks.map(task => (
-                    <div key={task.id}>{ task.name }</div>
-                )) }
+            <div className="list-group">
+            { tasks.map(task => (
+                <Link to={`/task/${task.id}`} key={task.id} className="list-group-item list-group-item-action">
+                    {task.isComplete}
+
+                    {(() => {
+                        if (task.isComplete) {
+                            return (<i className="far fa-check-square"></i>)
+                        } else {
+                            return (<i className="far fa-square"></i>)
+                        }
+                    })()}
+
+
+                    &nbsp;
+
+                    { task.name }
+                </Link>
+            )) }
             </div>
         </div>
     </div>

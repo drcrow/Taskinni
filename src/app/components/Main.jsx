@@ -6,15 +6,18 @@ import { Footer } from "./Footer";
 import { ConnectedDashboard } from "./Dashboard";
 import { Router, Route } from "react-router-dom";
 import { history } from "../store/history";
+import { ConnectedTaskDetail } from "./TaskDetail";
 
 export const Main = () => (
     <Router history={ history }>
         <Provider store={ store }>
             <div>
                 <ConnectedNavbar/>
-                <main role="main" className="flex-shrink-0">
+                <main role="main">
                 <div className="container">
-                    <Route exact path="/dashboard" render={ () => (<ConnectedDashboard/>) } />
+                    <br/>
+                    <Route exact path="/dashboard" render={ () => (<ConnectedDashboard />) } />
+                    <Route exact path="/task/:id" render={ ({ match }) => (<ConnectedTaskDetail match={ match } />) } />
                 </div>
                 </main>
                 <Footer/>

@@ -1,6 +1,6 @@
 body{
     font-family: 'Roboto Mono', monospace;
-    background: url(bg.jpg) repeat;
+    background: url(./bg.jpg) repeat;
 }
 
 main > .container {
@@ -14,4 +14,12 @@ main > .container {
 .footer > .container {
     padding-right: 15px;
     padding-left: 15px;
+}
+
+.card-body{
+    background-color: #fff;
+}
+
+.card-body form label{
+    color: #495057;
 }

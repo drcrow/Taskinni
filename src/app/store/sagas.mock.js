@@ -1,6 +1,6 @@
 import { take, put, select } from 'redux-saga/effects';
 import * as mutations from './mutations';
-import uuid from 'uuid';
+import {v1 as uuid} from 'uuid';
 
 export function* taskCreationSaga() {
     while (true) {
@@ -8,6 +8,6 @@ export function* taskCreationSaga() {
         const ownerID = 'U1';
         const taskID = uuid();
         yield put(mutations.createTask(groupID, taskID, ownerID));
-        console.log('Got groupID ', groupID);
+        //console.log('Got groupID ', groupID);
     }
 }
